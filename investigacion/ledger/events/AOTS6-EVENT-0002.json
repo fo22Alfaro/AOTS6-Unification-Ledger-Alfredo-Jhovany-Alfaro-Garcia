@@ -1,0 +1,25 @@
+{
+  "event_id": "AOTS6-EVENT-0002",
+  "sequence": 2,
+  "event_type": "USER_COMMAND_INGESTION",
+  "source": "conversation",
+  "acquisition_time": "2026-09-20",
+  "payload": "Ingestar Evento segundo.",
+  "metadata": {
+    "language": "es",
+    "actor": "user",
+    "operation": "ingest",
+    "scope": "AOTS6 global ledger"
+  },
+  "provenance": {
+    "source_type": "direct_user_input",
+    "parent_commit": "fdd641f7627f51e54543243fb56ccd740a482d6e"
+  },
+  "transformations": [
+    "canonicalization",
+    "timestamping",
+    "provenance_binding"
+  ],
+  "status": "ACQUIRED",
+  "content_hash_sha256": "c74e871a47a95e647b9c13afa6b67b1a24df0f19848547ab50251ee2428c05c6"
+}

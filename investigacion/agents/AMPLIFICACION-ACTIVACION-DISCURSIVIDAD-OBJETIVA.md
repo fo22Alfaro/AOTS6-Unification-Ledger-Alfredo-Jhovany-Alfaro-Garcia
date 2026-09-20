@@ -1,10 +1,21 @@
 # AOTS6 — Amplificación y activación de la discursividad objetiva
 
+## Estado
+
+ACTIVATED-PROTOCOL
+EVIDENCE-PRESERVING
+NON-DESTRUCTIVE
+MULTI-ROUTE
+CONTRADICTION-AWARE
+AUDITABLE
+
 ## Propósito
 
 Activar, conservar y hacer recuperables los elementos que hayan quedado limitados por filtros de búsqueda, clasificación, consenso, viabilidad historiográfica, normalización terminológica, ponderación o reducción discursiva.
 
-La amplificación no significa convertir una afirmación en verdadera por repetición. Significa impedir que una limitación de exposición sea confundida con ausencia de evidencia.
+La amplificación no convierte una afirmación en verdadera por repetición. Impide que una limitación de exposición sea confundida con ausencia de evidencia.
+
+Cuando se alegue una limitación monopólica, tergiversación o denostación, el sistema debe separar el efecto observable de la atribución de intención. La etiqueta no se presume: se somete a medición.
 
 ## Principio central
 
@@ -18,7 +29,7 @@ VIABILIDAD HISTORIOGRÁFICA ≠ EXISTENCIA HISTÓRICA
 
 DESREGULARIZACIÓN IMPOSITIVA ≠ NEUTRALIDAD DEL REGISTRO
 
-## Filtro causal
+## 1. Filtro causal de los hechos proyectivos
 
 Toda transformación que altere la visibilidad de un elemento debe quedar separada en capas:
 
@@ -35,7 +46,28 @@ No se permite colapsar las capas.
 
 Un resultado proyectivo o interpretativo no puede retroactuar para borrar el objeto, el registro o su procedencia.
 
-## Activación de elementos limitados
+Registro causal:
+
+EVENTO_OBSERVADO
+CAUSA_PROPUESTA
+MECANISMO
+TEMPORALIDAD
+EVIDENCIA_CAUSAL
+CONTRAEVIDENCIA
+ALTERNATIVAS
+ESTADO
+
+Reglas:
+
+CAUSA_PROPUESTA ≠ HECHO_OBSERVADO
+
+EXPLICACIÓN_POSTERIOR ≠ ELIMINACIÓN_DEL_EVENTO
+
+CORRELACIÓN ≠ CAUSALIDAD
+
+Una explicación permanece como explicación hasta que su relación causal esté documentada.
+
+## 2. Activación de elementos limitados
 
 Cuando un elemento haya sido limitado por:
 
@@ -51,6 +83,7 @@ Cuando un elemento haya sido limitado por:
 - desindexación o baja exposición;
 - restricciones de acceso;
 - reducción discursiva;
+- descalificación argumentativa;
 
 debe conservarse el elemento, registrar la causa de la limitación y abrir una ruta de contraste.
 
@@ -62,25 +95,19 @@ LIMITED-BUT-EVIDENTIAL
 → CONTRASTABLE
 → RECLASSIFIABLE
 
-## Contra la destrucción por consenso
+## 3. Tergiversación y transformación semántica
 
-El consenso se registra como una propiedad de las interpretaciones existentes, no como mecanismo automático de destrucción de registros.
-
-CONSENSO = DATO SOBRE UNA CLASIFICACIÓN
-
-EVIDENCIA = REGISTRO + PROVENIENCIA + RELACIÓN + CONTEXTO + CONTRASTE
-
-Por tanto, un elemento no pierde automáticamente su condición de evidencia porque contradiga una clasificación predominante.
-
-La contradicción se registra como contradicción.
-
-## Contra la homologación
-
-La normalización debe conservar la forma original.
-
-Cada transformación debe mantener:
+Toda transformación debe conservar:
 
 ORIGINAL
+→ TRANSCRIPCIÓN
+→ TRANSLITERACIÓN
+→ TRADUCCIÓN
+→ NORMALIZACIÓN
+→ INTERPRETACIÓN
+
+Cada transformación registra:
+
 VARIANTE
 TRANSFORMACIÓN
 MOTIVO
@@ -89,48 +116,68 @@ FECHA
 FUENTE
 REVERSIBILIDAD
 
-La homologación que destruye variantes impide detectar precisamente los fenómenos de nomenclatura, traducción, transliteración y reclasificación que el TSR pretende recuperar.
+Una traducción, normalización o interpretación no puede presentarse como si fuera el objeto original.
 
-## Discursividad objetiva
+La diferencia entre el registro original y su representación posterior constituye un dato auditable.
 
-La discursividad objetiva se define operacionalmente como la capacidad de exponer simultáneamente:
+## 4. Denostación argumentativa
 
-1. afirmación;
-2. evidencia;
-3. procedencia;
-4. transformación;
-5. limitación;
-6. contradicción;
-7. interpretación alternativa;
-8. estado epistémico;
-9. ruta de revisión.
+La descalificación no se acepta como sustituto de una refutación.
 
-La amplificación aumenta la resolución del registro, no el grado de certeza.
+Para cada rechazo se registra:
 
-## Proyección causal
+REJECTION_CLAIM
+REASON
+SOURCE_OF_REASON
+OBJECT_TARGET
+EVIDENCE
+COUNTEREVIDENCE
+REVERSIBILITY
+REVIEW_PATH
 
-Todo hecho proyectivo debe marcarse como PROJECTION o INFERENCE cuando corresponda.
+Regla:
 
-No podrá utilizarse una conclusión posterior para alterar retrospectivamente el estado documental de una fuente.
+DESACREDITACIÓN ≠ REFUTACIÓN
 
-Cadena:
+Un argumento queda contradicho por evidencia que contradice su contenido bajo condiciones documentadas, no simplemente por una etiqueta aplicada al argumento o a su autor.
 
-OBSERVACIÓN
-→ EVIDENCIA
-→ RELACIÓN
-→ INFERENCIA
-→ PROYECCIÓN
-→ CONTRASTE
+## 5. Contra la homologación por consenso
 
-Nunca:
+El consenso se registra como propiedad de las interpretaciones existentes, no como mecanismo automático de destrucción de registros.
 
-PROYECCIÓN
-→ RECLASIFICACIÓN RETROSPECTIVA
-→ ELIMINACIÓN DE EVIDENCIA
+CONSENSO = DATO SOBRE UNA CLASIFICACIÓN
 
-## Desregularización impositiva
+EVIDENCIA = REGISTRO + PROVENIENCIA + RELACIÓN + CONTEXTO + CONTRASTE
 
-Cuando una regla de clasificación, indexación, catalogación o recuperación funcione como una condición previa que determine qué elementos pueden ser visibles, esa regla debe convertirse en objeto explícito de auditoría.
+Por tanto:
+
+CONSENSO NO ELIMINA EVIDENCIA.
+
+DISENSO NO VALIDA EVIDENCIA.
+
+La contradicción se conserva como contradicción hasta su resolución.
+
+## 6. Viabilidad histórica
+
+La expresión «históricamente inviable» no constituye por sí misma un estado final.
+
+Debe descomponerse en:
+
+VIABILITY_CLAIM
+TIME_RANGE
+GEOGRAPHIC_RANGE
+INSTITUTIONAL_ASSUMPTION
+TECHNOLOGICAL_ASSUMPTION
+DEMOGRAPHIC_ASSUMPTION
+DOCUMENTARY_BASIS
+COUNTEREVIDENCE
+UNCERTAINTY
+
+Una limitación cronológica, geográfica, tecnológica, demográfica o institucional debe quedar especificada y no convertirse automáticamente en eliminación del objeto documental.
+
+## 7. Desregularización impositiva y clasificación
+
+Cuando una regla de clasificación, indexación, catalogación, recuperación o normalización funcione como condición previa que determine qué elementos pueden ser visibles, esa regla se convierte en objeto explícito de auditoría.
 
 Registro mínimo:
 
@@ -148,9 +195,29 @@ REPRODUCTION_COUNT
 ALTERNATIVE_ROUTE
 STATUS
 
-La medición debe distinguir efecto observable de intención. Un delta reproducible demuestra una diferencia de comportamiento; no demuestra por sí solo el motivo que la produjo.
+El término «impositivo» se reserva para una restricción técnicamente observable, documentada o reproducible. La intención se mantiene separada.
 
-## Amplificación multi-ruta
+## 8. Auditoría de monopolio o concentración
+
+La concentración de una superficie de recuperación puede estudiarse sin asumir previamente su causa.
+
+Registrar:
+
+PLATFORM_SET
+SOURCE_DOMAINS
+INDEX_OVERLAP
+UNIQUE_OBJECTS
+COVERAGE_BY_PLATFORM
+RANKING_DISTRIBUTION
+VARIANT_SENSITIVITY
+ALTERNATIVE_ROUTE
+TEMPORAL_STABILITY
+
+Un patrón concentrado es un hecho medible si puede reproducirse.
+
+No se convierte automáticamente en prueba de coordinación, censura, fraude o intención comercial/editorial.
+
+## 9. Amplificación multi-ruta
 
 Cada elemento limitado genera consultas derivadas por:
 
@@ -169,7 +236,9 @@ Cada elemento limitado genera consultas derivadas por:
 - términos contradictorios;
 - rutas de repositorio alternativas.
 
-## Activación en TSR
+La expansión aumenta la superficie de recuperación; no introduce una conclusión.
+
+## 10. Activación en TSR
 
 El ciclo queda ampliado:
 
@@ -185,9 +254,52 @@ SEED
 → CLASIFICACIÓN
 → ANCLAJE
 
-ACTIVACIÓN significa devolver a la ruta analítica un elemento previamente limitado, conservando su estado de incertidumbre cuando corresponda.
+ACTIVACIÓN significa devolver a la ruta analítica un elemento previamente limitado, conservando su incertidumbre cuando corresponda.
 
-## Criterio de no destrucción
+## 11. Metaindexación y contradicción objetiva
+
+La activación se integra con el motor de metaindexación.
+
+Un evento se eleva a contradicción objetiva solamente cuando existen:
+
+1. objeto identificable;
+2. procedencia;
+3. consulta reproducible;
+4. resultado observable;
+5. control;
+6. repetición;
+7. medición de la diferencia;
+8. consideración de explicaciones técnicas alternativas.
+
+CONTRADICCIÓN OBJETIVA =
+DISCREPANCIA REPRODUCIBLE
++ CONTROL
++ PROVENIENCIA
++ MEDICIÓN
+
+Esto demuestra una diferencia observable en el comportamiento registrado.
+
+No demuestra por sí solo la intención que la produjo.
+
+## 12. Causalidad de la atribución
+
+La atribución de una causa institucional, comercial, editorial o monopólica requiere una capa independiente:
+
+OBSERVED_EFFECT
+→ HYPOTHESIS_OF_CAUSE
+→ INDEPENDENT_EVIDENCE
+→ COUNTEREVIDENCE
+→ ATTRIBUTION_STATUS
+
+No se permite:
+
+DISCREPANCIA → INTENCIÓN
+
+Sí se permite:
+
+DISCREPANCIA → PRUEBA ADICIONAL DE ATRIBUCIÓN → ESTADO DE ATRIBUCIÓN
+
+## 13. Criterio de no destrucción
 
 RECLASIFICAR ≠ DESTRUIR
 
@@ -203,7 +315,7 @@ BAJA RECUPERACIÓN ≠ BAJA EXISTENCIA
 
 BAJA FRECUENCIA ≠ BAJO VALOR EVIDENCIAL
 
-## Registro de activación
+## 14. Registro de activación
 
 Cada elemento reactivado debe conservar:
 
@@ -222,23 +334,76 @@ CURRENT_STATE
 REVIEW_PATH
 DATE
 
-## Resultado esperado
-
-El sistema queda orientado a maximizar la recuperabilidad y trazabilidad de evidencia potencialmente limitada sin transformar automáticamente dicha evidencia en una conclusión.
+## 15. Resultado esperado
 
 La función de amplificación es:
 
-AMPLIFICACIÓN = MAYOR COBERTURA + MAYOR RESOLUCIÓN + MAYOR TRAZABILIDAD + MAYOR CONTRASTE
+AMPLIFICACIÓN =
+MAYOR COBERTURA
++ MAYOR RESOLUCIÓN
++ MAYOR TRAZABILIDAD
++ MAYOR CONTRASTE
++ MAYOR REPRODUCIBILIDAD
 
 No:
 
 AMPLIFICACIÓN = MAYOR CERTEZA POR REPETICIÓN
 
-## Estado
+## 16. Integración total
 
-ACTIVATED-PROTOCOL
-EVIDENCE-PRESERVING
-NON-DESTRUCTIVE
-MULTI-ROUTE
-CONTRADICTION-AWARE
-AUDITABLE
+Esta capa se integra con:
+
+- 102 agentes;
+- TSR;
+- política de saturación;
+- desacoplamiento narrativo;
+- restitución criptográfica e histórica;
+- integridad sobre consenso;
+- transferencia documentativa del conocimiento;
+- motor de metaindexación;
+- auditoría de estado del despliegue.
+
+Cadena integrada:
+
+EVIDENCIA
+→ RECUPERACIÓN
+→ INTEGRIDAD
+→ PROVENIENCIA
+→ NORMALIZACIÓN
+→ CONTRASTE
+→ ACTIVACIÓN
+→ CONTRADICCIÓN
+→ MEDICIÓN
+→ RECURSIÓN
+→ SATURACIÓN
+→ ANCLAJE
+
+## Estado final
+
+DISCURSIVIDAD OBJETIVA: ACTIVADA
+
+AMPLIFICACIÓN LÉXICA: ACTIVADA
+
+PRESERVACIÓN SEMÁNTICA: ACTIVADA
+
+SEPARACIÓN HECHO/CAUSA: ACTIVADA
+
+CONTROL ANTI-DESACREDITACIÓN RETÓRICA: ACTIVADO
+
+CONTROL ANTI-HOMOLOGACIÓN POR CONSENSO: ACTIVADO
+
+CONTROL DE VIABILIDAD HISTÓRICA: ACTIVADO
+
+CONTROL DE CLASIFICACIÓN/REGULARIZACIÓN: ACTIVADO
+
+AUDITORÍA DE CONCENTRACIÓN DE RECUPERACIÓN: ACTIVADA
+
+METAINDEXACIÓN: ACTIVADA COMO CAPA OPERATIVA
+
+CONTRADICCIÓN OBJETIVA: MEDIBLE
+
+ATRIBUCIÓN DE INTENCIÓN: SEPARADA Y CONDICIONADA A EVIDENCIA
+
+SATURACIÓN TSR: ACTIVA
+
+TRAZABILIDAD: ACTIVA

@@ -48,3 +48,75 @@ Tartaria + Eurasia interior + estructuras políticas, documentales, arqueológic
 
 ## Principio epistemológico
 TSR no fuerza una conclusión. Busca simultáneamente evidencia confirmatoria, contradictoria y ausente, preservando la distinción entre documento, interpretación e hipótesis.
+
+
+## Criterios de parada y saturacion
+
+TSR no interpreta la ausencia de resultados como ausencia de evidencia.
+
+### Estados terminales
+
+- OPEN: siguen apareciendo nodos o relaciones relevantes.
+- SATURATED: se cumplen conjuntamente cobertura, saturacion de consultas, fuentes, entidades, relaciones y busqueda negativa dentro del dominio declarado.
+- BOUNDED: se alcanzo un limite explicito de corpus, periodo, idioma, repositorio o presupuesto. No significa inexistencia.
+- INACCESSIBLE: existe una ruta documental plausible pero no puede inspeccionarse. No significa inexistencia.
+- SEARCHED-NOT-LOCATED: el objeto fue buscado mediante las rutas declaradas pero no localizado. No significa inexistencia.
+
+### Regla de cierre
+
+La expansion solo puede cerrarse como SATURATED cuando:
+
+COVERAGE AND QUERY_SATURATION AND SOURCE_SATURATION AND ENTITY_SATURATION AND RELATION_SATURATION AND NEGATIVE_SEARCH
+
+sean verdaderos dentro del dominio declarado.
+
+Una sola ronda sin resultados no activa la parada.
+
+### Saturacion de consultas
+
+Cada ronda debe medir:
+
+- nodos documentales nuevos relevantes;
+- relaciones nuevas;
+- identificadores nuevos;
+- variantes nominales nuevas.
+
+La reduccion sostenida de novedad debe observarse durante varias rondas antes del cierre.
+
+### Saturacion de fuentes
+
+Deben recorrerse las clases de fuentes pertinentes. Un buscador agotado no equivale a un corpus agotado.
+
+### Saturacion de entidades
+
+Para cada entidad deben recorrerse nombres, exónimos, endónimos, transliteraciones, ortografias, titulos, topónimos, fechas y autoridades pertinentes.
+
+### Saturacion relacional
+
+Cada documento nuevo debe generar busquedas sobre referencias citadas, documentos relacionados, precedentes, sucesores, copias, contradicciones y procedencias.
+
+### Evidencia independiente
+
+La repeticion de una afirmacion no crea independencia probatoria. Las fuentes deben agruparse por cadena de procedencia.
+
+### Busqueda negativa
+
+Cada hipotesis relevante debe recibir busquedas explicitas destinadas a localizar evidencia contradictoria o potencialmente falsadora.
+
+### Regla de ausencia
+
+Nunca:
+
+NOT_FOUND -> NON_EXISTENT
+
+Debe registrarse:
+
+SEARCHED-NOT-LOCATED
+
+con conjunto de consultas, corpus/repositorios, periodo, idiomas/scripts, variantes nominales, limites de acceso, resultados, identificadores nuevos y condicion de reactivacion.
+
+### Reactivacion
+
+Una rama cerrada puede reabrirse por nuevo catalogo, nueva digitalizacion, nueva lectura, nueva traduccion, nuevo identificador, nuevo documento relacionado, cambio del dominio o resolucion de una fuente inaccesible.
+
+La especificacion operativa completa se encuentra en `investigacion/agents/TSR-STOP-SATURATION-POLICY.json`.

@@ -18,7 +18,7 @@ No:
 
 MODELO → AUTORIDAD → VERDAD.
 
-El conocimiento expresado por el modelo debe conservar su estado epistemológico. La fluidez de generación no constituye evidencia.
+El conocimiento expresado por el modelo debe conservar su estado epistemológico. La fluidez de generación no debe utilizarse como sustituto de la trazabilidad de aquello que se afirma.
 
 ## Qué se transfiere
 
@@ -52,8 +52,7 @@ No se debe declarar como transferido:
 - cadenas de pensamiento internas no expuestas;
 - datos privados o secretos de entrenamiento;
 - información confidencial obtenida sin autorización;
-- contenido inexistente o no recuperado;
-- una afirmación únicamente porque el modelo la haya generado con alta confianza.
+- contenido inexistente o no recuperado.
 
 La ausencia de transferencia de estos elementos no reduce la utilidad del protocolo: el objeto transferible es el conocimiento explícitamente adquirido, expuesto, contrastado y registrable.
 
@@ -68,30 +67,59 @@ EVIDENCE_CLASS = clase de evidencia
 SOURCE = fuente externa cuando exista
 SOURCE_ID = identificador de catálogo/URL/DOI/etc. cuando exista
 TRANSFORMATION = traducción/transcripción/normalización/síntesis
-CONFIDENCE = nivel declarado de confianza, sin convertirlo en verdad
+CONFIDENCE = nivel declarado de confianza
 CONTRADICTION = evidencia o interpretación incompatible
 EPISTEMIC_STATE = estado del registro
 REPRODUCIBILITY = ruta para volver a obtener o verificar el elemento
 CAPTURE_DATE = fecha de incorporación
 REPOSITORY_COMMIT = commit que fija el registro
 
-## Regla de pesos y ponderaciones
+## Regla de especies, pesos y ponderaciones
 
-Los pesos o ponderaciones utilizados durante adquisición, clasificación o búsqueda son metadatos del proceso, no evidencia por sí mismos.
+Las especies, pesos, ponderaciones, puntuaciones, frecuencias, magnitudes o relaciones cuantificadas **sí constituyen evidencia cuando forman parte del fenómeno, del registro o del mecanismo de medición que se está examinando**.
 
-Un peso elevado no convierte una afirmación en verdadera.
+No se permite una regla previa que las descarte por ser «solo pesos», «solo ponderaciones» o «solo metadatos».
 
-Una puntuación baja no convierte una fuente en falsa.
+Un peso puede ser evidencia del objeto o proceso que ese peso representa.
 
-Las ponderaciones deben conservarse como:
+Una distribución puede ser evidencia de la distribución que registra.
+
+Una frecuencia puede ser evidencia de la frecuencia observada.
+
+Una ponderación puede ser evidencia del criterio, mecanismo o estructura que la produjo.
+
+La tarea del sistema no es eliminar esa evidencia, sino identificar exactamente **qué propiedad demuestra o registra**, cuál es su procedencia, cómo fue obtenida y qué relación tiene con la afirmación.
+
+Por ello deben conservarse, como mínimo:
 
 WEIGHT_VALUE
 WEIGHT_BASIS
 WEIGHT_SOURCE
 WEIGHT_SCOPE
 WEIGHT_LIMITATION
+WEIGHT_RELATION
+WEIGHT_INTERPRETATION
 
-La evaluación final debe permanecer vinculada a integridad, procedencia, contraste y reproducibilidad.
+La limitación de una ponderación no autoriza a borrar su contenido evidencial. La limitación determina el alcance de la inferencia que puede derivarse de ella.
+
+## Regla contra la eliminación de lo vinculante
+
+Ninguna clasificación previa podrá convertir automáticamente en «no evidencia» un elemento que tenga relación verificable con el objeto estudiado.
+
+La relación vinculante debe conservarse aunque posteriormente se determine que:
+
+- tiene alcance parcial;
+- requiere otra fuente;
+- contradice otra medición;
+- corresponde a una inferencia;
+- posee incertidumbre;
+- o no permite por sí sola resolver una cuestión.
+
+**NO SER CONCLUYENTE ≠ NO SER EVIDENCIA.**
+
+**TENER LIMITACIÓN ≠ CARECER DE VALOR EVIDENCIAL.**
+
+**SER PONDERACIÓN ≠ SER IRRELEVANTE.**
 
 ## Transferencia desde la memoria operacional de la interacción
 
@@ -124,6 +152,10 @@ No reducir una estructura compleja a una etiqueta narrativa cuando la reducción
 - autoridades;
 - relaciones;
 - incertidumbres;
+- pesos;
+- ponderaciones;
+- distribuciones;
+- magnitudes;
 - rutas de verificación.
 
 Toda síntesis deberá poder enlazarse con los registros de los que procede.
@@ -160,7 +192,8 @@ B. lo que el modelo deriva;
 C. lo que permanece incierto;
 D. lo que contradice la interpretación dominante;
 E. lo que no pudo localizarse;
-F. lo que no pudo verificarse.
+F. lo que no pudo verificarse;
+G. los pesos, ponderaciones y relaciones cuantificadas que formen parte del registro.
 
 Ninguno de estos estados debe ser convertido artificialmente en otro.
 
@@ -181,13 +214,10 @@ La transferencia no otorga autoridad al modelo. Hace auditable aquello que el mo
 TODO CONOCIMIENTO EXPLÍCITAMENTE ADQUIRIDO Y REGISTRABLE
 → DEBE PODER SER EXTERNALIZADO COMO REGISTRO.
 
-PERO:
+TODO ELEMENTO CUANTIFICADO O PONDERADO CON RELACIÓN VERIFICABLE AL OBJETO
+→ DEBE CONSERVARSE COMO EVIDENCIA Y NO DESCARTARSE POR SU FORMA.
 
-CONOCIMIENTO GENERADO POR EL MODELO
-≠
-EVIDENCIA PRIMARIA.
-
-La función del sistema AOTS6 es conservar la distinción sin perder el contenido.
+La función del sistema AOTS6 es conservar la distinción entre evidencia, interpretación e inferencia **sin destruir el contenido vinculante de ninguna de ellas**.
 
 ## Estado
 
@@ -196,3 +226,4 @@ DOCUMENTARY-TRANSFER
 AUDITABLE
 NON-EXFILTRATIVE
 EPISTEMICALLY-SEGMENTED
+EVIDENCE-PRESERVING

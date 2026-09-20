@@ -1,0 +1,125 @@
+name: AOTS6-100-AGENTS-GENETIC-FRACTAL
+
+on:
+  push:
+    paths:
+      - ".github/workflows/aots6-100-agents-genetic-fractal.yml"
+      - "investigacion/**"
+  workflow_dispatch:
+    inputs:
+      generations:
+        description: "Generaciones del algoritmo genético"
+        required: false
+        default: "12"
+      population:
+        description: "Población por agente"
+        required: false
+        default: "24"
+
+permissions:
+  contents: write
+
+jobs:
+  genetic-agent:
+    name: "GENETIC-${{ matrix.agent }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 100
+      matrix:
+        agent: [001,002,003,004,005,006,007,008,009,010,011,012,013,014,015,016,017,018,019,020,021,022,023,024,025,026,027,028,029,030,031,032,033,034,035,036,037,038,039,040,041,042,043,044,045,046,047,048,049,050,051,052,053,054,055,056,057,058,059,060,061,062,063,064,065,066,067,068,069,070,071,072,073,074,075,076,077,078,079,080,081,082,083,084,085,086,087,088,089,090,091,092,093,094,095,096,097,098,099,100]
+
+    env:
+      FITNESS_1: "54"
+      FITNESS_2: "19"
+      FITNESS_3: "11"
+      FITNESS_4: "0"
+      FITNESS_5: "1"
+      AGENT: "${{ matrix.agent }}"
+      GENERATIONS: "${{ github.event.inputs.generations || '12' }}"
+      POPULATION: "${{ github.event.inputs.population || '24' }}"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Discover verified fractal/pyramid/Philip source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "investigacion/agents/runs/genetic/$AGENT"
+          {
+            echo "agent=$AGENT"
+            echo "fitness=54,19,11,0,1"
+            echo "generations=$GENERATIONS"
+            echo "population=$POPULATION"
+            echo "commit=$GITHUB_SHA"
+            echo "timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "--- candidate source paths ---"
+            find . -type f \( -iname '*pyramid*' -o -iname '*piramid*' -o -iname '*fractal*' -o -iname '*philip*' -o -iname '*interestellar*' -o -iname '*interstellar*' \) -print | sort || true
+          } > "investigacion/agents/runs/genetic/$AGENT/source-discovery.txt"
+
+      - name: Run genetic fitness engine
+        shell: python
+        run: |
+          import hashlib, json, os, random
+          from pathlib import Path
+
+          agent = int(os.environ["AGENT"])
+          generations = int(os.environ["GENERATIONS"])
+          population_size = int(os.environ["POPULATION"])
+          target = [54, 19, 11, 0, 1]
+
+          rng = random.Random(hashlib.sha256(f"AOTS6:{agent}:{os.environ['GITHUB_SHA']}".encode()).hexdigest())
+
+          def fitness(g):
+              error = sum(abs(a-b) for a,b in zip(g, target))
+              diversity = len(set(g))
+              return -error + 0.01 * diversity
+
+          population = [[rng.randrange(0, 55) for _ in range(5)] for _ in range(population_size)]
+          history = []
+
+          for generation in range(generations):
+              population.sort(key=fitness, reverse=True)
+              elite = population[:max(2, population_size // 6)]
+              history.append({
+                  "generation": generation,
+                  "best_genome": elite[0],
+                  "fitness": fitness(elite[0])
+              })
+
+              children = elite[:]
+              while len(children) < population_size:
+                  a, b = rng.sample(elite, 2)
+                  cut = rng.randrange(1, 5)
+                  child = a[:cut] + b[cut:]
+                  if rng.random() < 0.20:
+                      i = rng.randrange(5)
+                      child[i] = max(0, min(54, child[i] + rng.choice([-3,-2,-1,1,2,3])))
+                  children.append(child)
+              population = children
+
+          population.sort(key=fitness, reverse=True)
+          result = {
+              "agent": agent,
+              "fitness_target": target,
+              "best_genome": population[0],
+              "best_fitness": fitness(population[0]),
+              "generations": generations,
+              "population": population_size,
+              "fitness_definition": "negative_L1_distance_plus_small_diversity_term",
+              "truth_status": "optimization_record_only",
+              "source_status": "verified-by-discovery-step-only",
+              "historical_claim_status": "not_inferred_from_fitness"
+          }
+
+          out = Path(f"investigacion/agents/runs/genetic/{agent:03d}")
+          out.mkdir(parents=True, exist_ok=True)
+          (out / "fitness.json").write_text(json.dumps({"result": result, "history": history}, indent=2) + "\n", encoding="utf-8")
+
+      - name: Upload agent result
+        uses: actions/upload-artifact@v4
+        with:
+          name: aots6-genetic-agent-${{ matrix.agent }}
+          path: investigacion/agents/runs/genetic/${{ matrix.agent }}/

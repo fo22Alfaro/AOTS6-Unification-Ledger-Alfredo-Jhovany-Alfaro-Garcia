@@ -1,0 +1,65 @@
+name: AOTS6-GLOBAL-AGENT-ORCHESTRATOR
+
+on:
+  push:
+    paths:
+      - "investigacion/ledger/events/AOTS6-EVENT-0005-GLOBAL-SYSTEMS-ACQUISITION.md"
+      - ".github/workflows/aots6-global-agent-orchestrator.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  global-agent:
+    name: "AOTS6-GLOBAL-AGENT"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 202
+      matrix:
+        agent: [001,002,003,004,005,006,007,008,009,010,011,012,013,014,015,016,017,018,019,020,021,022,023,024,025,026,027,028,029,030,031,032,033,034,035,036,037,038,039,040,041,042,043,044,045,046,047,048,049,050,051,052,053,054,055,056,057,058,059,060,061,062,063,064,065,066,067,068,069,070,071,072,073,074,075,076,077,078,079,080,081,082,083,084,085,086,087,088,089,090,091,092,093,094,095,096,097,098,099,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assign acquisition partition
+        env:
+          AGENT: ${{ matrix.agent }}
+        run: |
+          set -euo pipefail
+          mkdir -p "investigacion/agents/runs/global/$AGENT"
+          printf '%s\n' "agent=$AGENT" "run_id=$GITHUB_RUN_ID" "commit=$GITHUB_SHA" "scope=publicly accessible global models, processing systems, repositories, documentation, benchmarks, software, datasets and execution metadata" "mode=distributed acquisition" "private_data=false" "provenance_required=true" "hash_required=true" "coverage_claim=only successfully acquired records" > "investigacion/agents/runs/global/$AGENT/assignment.txt"
+
+      - name: Acquire public source indexes
+        env:
+          AGENT: ${{ matrix.agent }}
+        run: |
+          set -euo pipefail
+          out="investigacion/agents/runs/global/$AGENT"
+          case $((10#$AGENT % 10)) in
+            0) urls=("https://huggingface.co/models" "https://huggingface.co/datasets") ;;
+            1) urls=("https://github.com/trending" "https://github.com/topics/artificial-intelligence") ;;
+            2) urls=("https://arxiv.org/list/cs.AI/recent" "https://arxiv.org/list/cs.LG/recent") ;;
+            3) urls=("https://pypi.org/" "https://www.npmjs.com/") ;;
+            4) urls=("https://pytorch.org/" "https://www.tensorflow.org/") ;;
+            5) urls=("https://qiskit.github.io/" "https://pennylane.ai/") ;;
+            6) urls=("https://developer.nvidia.com/cuda-toolkit" "https://docs.nvidia.com/cuda/") ;;
+            7) urls=("https://spark.apache.org/" "https://kubernetes.io/") ;;
+            8) urls=("https://www.openml.org/" "https://archive.ics.uci.edu/") ;;
+            9) urls=("https://zenodo.org/" "https://figshare.com/") ;;
+          esac
+          : > "$out/acquisition.tsv"
+          for u in "${urls[@]}"; do
+            code=$(curl -L --max-time 20 --retry 1 -sS -o "$out/body-$(printf '%s' "$u" | sha256sum | cut -c1-16).txt" -w "%{http_code}" "$u" || true)
+            printf '%s\t%s\t%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$code" "$u" >> "$out/acquisition.tsv"
+          done
+          sha256sum "$out"/* > "$out/sha256sums.txt" || true
+
+      - name: Upload physical acquisition record
+        uses: actions/upload-artifact@v4
+        with:
+          name: aots6-global-agent-${{ matrix.agent }}
+          path: investigacion/agents/runs/global/${{ matrix.agent }}/

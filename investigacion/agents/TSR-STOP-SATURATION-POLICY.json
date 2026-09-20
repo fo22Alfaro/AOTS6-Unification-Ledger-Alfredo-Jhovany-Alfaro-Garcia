@@ -1,0 +1,71 @@
+{
+  "system": "AOTS6",
+  "protocol": "TSR",
+  "version": "1.0",
+  "purpose": "Cerrar expansion recursiva sin convertir ausencia de resultados en ausencia de evidencia.",
+  "terminal_states": {
+    "OPEN": "La expansion sigue produciendo nodos o relaciones relevantes.",
+    "SATURATED": "Cobertura, entidades, fuentes, relaciones y busqueda negativa cumplidas dentro del dominio declarado.",
+    "BOUNDED": "Se alcanzo un limite explicito de corpus, periodo, idioma, repositorio o presupuesto; no equivale a inexistencia.",
+    "INACCESSIBLE": "Existe una ruta documental plausible pero no puede ser inspeccionada; no equivale a inexistencia."
+  },
+  "forbidden_inference": [
+    "NOT_FOUND -> NON_EXISTENT",
+    "0 resultados -> ausencia historica",
+    "frecuencia de citas -> independencia probatoria",
+    "catalogo secundario -> fuente primaria independiente",
+    "agotamiento de un buscador -> agotamiento del corpus"
+  ],
+  "saturation_criteria": {
+    "query_saturation": "Rondas consecutivas sin identificadores documentales nuevos relevantes.",
+    "source_saturation": "Las clases de repositorio declaradas han sido cubiertas o marcadas BOUNDED/INACCESSIBLE.",
+    "entity_saturation": "Variantes linguisticas, ortograficas, transliteraciones, titulos, toponimos y cronologias pertinentes han sido recorridas.",
+    "relation_saturation": "Las nuevas iteraciones dejan de generar relaciones relevantes entre nodos.",
+    "independent_evidence_saturation": "Las fuentes se agrupan por dependencia de procedencia; las copias no cuentan como confirmaciones independientes.",
+    "negative_search": "Cada hipotesis relevante recibe busquedas explicitas de evidencia contradictoria y de terminos que podrian falsarla."
+  },
+  "stopping_rule": "STOP solo si coverage AND query_saturation AND source_saturation AND entity_saturation AND relation_saturation AND negative_search se cumplen; INACCESSIBLE puede permanecer no vacio y debe reportarse.",
+  "round_metrics": {
+    "delta_new_nodes": "nodos nuevos relevantes / consultas efectivas",
+    "rho_new_relations": "relaciones nuevas / nodos examinados",
+    "novelty_window": "La caida de delta/rho debe observarse en varias rondas, nunca en una sola."
+  },
+  "required_absence_record": [
+    "query_set",
+    "repositories_or_corpora",
+    "date_range",
+    "languages_and_scripts",
+    "name_variants",
+    "access_limits",
+    "results_count",
+    "new_identifiers_count",
+    "status",
+    "next_reactivation_condition"
+  ],
+  "reactivation_conditions": [
+    "nuevo catalogo o repositorio",
+    "nueva digitalizacion",
+    "nueva lectura paleografica o traduccion",
+    "nuevo identificador o variante nominal",
+    "nuevo documento relacionado",
+    "cambio de limites temporales/geograficos",
+    "resolucion de una fuente INACCESSIBLE"
+  ],
+  "evidence_classes": [
+    "PRIMARY",
+    "ARCHAEOLOGICAL",
+    "EPIGRAPHIC",
+    "CARTOGRAPHIC",
+    "SECONDARY",
+    "INFERENCE",
+    "HYPOTHESIS",
+    "DISPUTED",
+    "UNRESOLVED",
+    "SEARCHED-NOT-LOCATED"
+  ],
+  "agent_application": {
+    "all_agents": 102,
+    "rule": "Todos los agentes deben emitir estado terminal, cobertura, novedad, contradicciones y rutas no resueltas.",
+    "integration_agent": "Agent 102 consolida estados sin borrar BOUNDED, INACCESSIBLE ni SEARCHED-NOT-LOCATED."
+  }
+}

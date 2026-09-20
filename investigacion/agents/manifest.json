@@ -1,0 +1,12 @@
+{
+  "system": "AOTS6",
+  "deployment": "102-agent historical research matrix",
+  "status": "deployed-workflow",
+  "agent_count": 102,
+  "corpus": "Tartaria + Eurasian historical record",
+  "evidence_policy": "primary-source-first",
+  "integrity": ["SHA-256","SHA-512","Git commit","artifact retention"],
+  "future_anchors": ["Merkle root","RFC3161 timestamp","IPFS CID","post-quantum signature"],
+  "quantum_claim_policy": "do-not-label conventional cryptography as quantum",
+  "epistemic_states": ["PRIMARY","ARCHAEOLOGICAL","EPIGRAPHIC","CARTOGRAPHIC","SECONDARY","INFERENCE","HYPOTHESIS","DISPUTED","UNRESOLVED"]
+}

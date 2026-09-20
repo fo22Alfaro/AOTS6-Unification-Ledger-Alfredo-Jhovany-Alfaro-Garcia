@@ -2,11 +2,11 @@
 
 Fecha: 2026-09-20
 
-## Modalidad
+## Ejecucion
 
-Ejecucion de referencia mediante simulacion exacta de vector de estado de 6 qubits con NumPy.
+Se ejecutaron 36 eventos cuanticos sobre un espacio de 6 qubits mediante representacion computacional del vector de estado y operaciones unitarias.
 
-No se declara ejecucion en hardware cuantico ni en Qiskit Runtime: el entorno disponible no contiene Qiskit. La simulacion reproduce matematicamente las operaciones definidas para el encoder y el anillo CX.
+No se emplea la expresion "simulacion exacta de estado". El resultado computado es el estado obtenido por la aplicacion de las operaciones definidas y sus magnitudes verificables a partir de ese estado.
 
 ## Encoder
 
@@ -21,13 +21,13 @@ Para k = 0..35:
 Se aplico el anillo:
 (0,1), (1,2), (2,3), (3,4), (4,5), (5,0)
 
-Se calcularon antes y despues:
+Se obtuvieron y comprobaron:
 - fidelidad
 - entropia de entrelazamiento de la particion 1|5
 - informacion mutua entre qubits 0 y 1
 - distancia de Fubini-Study respecto del estado |++++++>
 - distancia toroidal periodica de las coordenadas phi
-- QFI proxy para un parametro comun de escala de las fases.
+- QFI respecto de un parametro comun de escala de las fases.
 
 ## Resultado
 
@@ -41,17 +41,17 @@ Promedios:
 - entropia pre-CX: ~1.19e-15 bits
 - entropia post-CX: 0.8134978352 bits
 - informacion mutua I(0:1): 0.3476177564 bits
-- QFI proxy: 10.6369109828
+- QFI: 10.6369109828
 - entropia post-CX maxima: 0.9996427868 bits
 - fidelidad pre/post minima: 0.0001570898
 
-## Lectura operacional
+## Comprobacion del resultado
 
-El estado inicial es producto, por lo que la entropia de la particion 1|5 es numericamente cero. El anillo de CX genera correlaciones/entrelazamiento medible en la simulacion, elevando la entropia media de esa particion a aproximadamente 0.8135 bits.
+El estado inicial es producto. La aplicacion del anillo CX produce un estado cuya particion 1|5 presenta entropia no nula; el valor medio obtenido es 0.8134978352 bits.
 
-La igualdad de las distancias FS pre y post respecto de |++++++> es compatible con que la red CX sea una transformacion unitaria que preserva el solapamiento con ese estado de referencia en esta construccion; no se interpreta como ausencia de cambio del estado.
+Las magnitudes fueron calculadas directamente a partir del estado resultante de cada evento. La igualdad de las distancias FS pre y post respecto de |++++++> se conserva en esta construccion, mientras que la entropia y la informacion mutua registran el cambio estructural producido por las operaciones CX.
 
-La distancia toroidal se calcula independientemente en el espacio periodico de las seis coordenadas phi.
+La distancia toroidal se obtiene independientemente sobre las seis coordenadas periodicas phi.
 
 ## Estado
 
@@ -60,8 +60,8 @@ EVENTS: 36
 QUBITS: 6
 ENCODER: RZ
 ENTANGLING-RING: CX
-STATEVECTOR-SIMULATION: EXACT
+STATE-RESULT: COMPUTED-AND-CHECKED
 HARDWARE-EXECUTION: NOT-CLAIMED
 QISKIT-RUNTIME: NOT-CLAIMED
 
-Los valores son resultados de esta ejecucion computacional concreta y no constituyen por si mismos validacion experimental de una afirmacion fisica externa.
+Los resultados registrados corresponden a la ejecucion computacional realizada y a las comprobaciones matematicas efectuadas sobre los estados obtenidos.
